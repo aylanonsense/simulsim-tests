@@ -73,7 +73,12 @@ end
 function client.update(self, dt)
   self.frame = self.frame + 1
   if self.frame % 120 == 0 then
-    self:fireEvent('spawn-client-entity', { clientId = self.clientId, syncMode = syncMode })
+    self:fireEvent('spawn-client-entity', {
+      clientId = self.clientId,
+      syncMode = syncMode
+    }, {
+      predictClientSide = syncMode ~= 'predictClientSide = false'
+    })
   end
 end
 function client.draw(self)
@@ -86,5 +91,10 @@ function client.draw(self)
 end
 
 function castle.uiupdate()
-  syncMode = castle.ui.dropdown('sync mode', syncMode, { 'entity.clientId', 'temporarilyDisableSync', 'Do nothing (flicker)' })
+  syncMode = castle.ui.dropdown('sync mode', syncMode, {
+    'entity.clientId',
+    'temporarilyDisableSync',
+    'predictClientSide = false',
+    'Do nothing (flicker)'
+  })
 end
