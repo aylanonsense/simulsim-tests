@@ -1,0 +1,9 @@
+---
+main: spawn-test.lua
+name: Spawn Test
+description: Testing the spawnEntity functionality of simulsim.
+username: bridgs
+multiplayer:
+    - enabled: true
+dimensions: 400x200
+scaling: on
