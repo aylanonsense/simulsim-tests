@@ -54,7 +54,7 @@ local network, server, client = simulsim.createGameNetwork(game, {
   height = 200,
   numClients = 1,
   latency = 300,
-  framesBetweenServerSnapshots = 10
+  framesBetweenServerSnapshots = 2
 })
 
 function server.load(self)
